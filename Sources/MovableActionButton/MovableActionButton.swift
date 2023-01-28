@@ -7,14 +7,14 @@ private func distance(from: (x: CGFloat, y: CGFloat), to: (x: CGFloat, y: CGFloa
 
 
 @available(macOS 10.15, *)
-struct MovableActionButton<FAB: View>: ViewModifier {
+struct MovableActionButton<ActionButton: View>: ViewModifier {
     @State var alignment = Alignment.bottomTrailing
     var allowedAllignments: [Alignment] = [
         .bottomLeading, .bottom, .bottomTrailing,
         .leading, .trailing,
         .topLeading, .top, .topTrailing
     ]
-    let actionButton: () -> FAB
+    let actionButton: () -> ActionButton
     
     let onAlignmentChanged: ((Alignment) -> Void)?
     
